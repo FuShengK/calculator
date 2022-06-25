@@ -1,4 +1,3 @@
-
 function applyOp(op, b, a) {
 	switch (op) {
 		case '+':
@@ -44,14 +43,9 @@ function calculating(value) {
 			}
 			operators.pop();
 		} else if (value[i] === '+' || value[i] === '-' || value[i] === '*' || value[i] === '/') {
-			// Current token is an operator.
-			// While top of 'ops' has same or greater precedence to current
-			// token, which is an operator. Apply operator on top of 'ops'
-			// to top two elements in values stack
 			while (operators.length && hasPrecedence(value[i], operators[operators.length - 1])) {
 				values.push(applyOp(operators.pop(), values.pop(), values.pop()));
 			}
-			// Push current token to 'ops'.
 			operators.push(value[i]);
 		}
 	}
@@ -62,3 +56,5 @@ function calculating(value) {
 
 	return values.pop();
 };
+
+console.log(calculating("9*(3)"))
