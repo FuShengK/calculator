@@ -62,6 +62,3 @@ function calculating(value) {
 
 	return values.pop();
 };
-
-
-console.log(calculating('(15-9)*7'))
